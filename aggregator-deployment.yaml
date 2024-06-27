@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: star-facts-deployment
+  name: aggregator-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: star-facts
+      app: aggregator
   template:
     metadata:
       labels:
-        app: star-facts
+        app: aggregator
     spec:
       containers:
-      - name: star-facts
-        image: 533266979424.dkr.ecr.us-east-1.amazonaws.com/star-facts-service:latest
+      - name: aggregator
+        image: 533266979424.dkr.ecr.us-east-1.amazonaws.com/aggregator-service:latest
         ports:
         - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: star-facts-service
+  name: aggregator-service
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     targetPort: 5000
   selector:
-    app: star-facts
+    app: aggregator

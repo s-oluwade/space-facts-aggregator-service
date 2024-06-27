@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>Space Facts Aggregator</title>
 </head>
 <body>
-    <h1>{{ title }}</h1>
-    <ul>
-        {% for fact in facts %}
-            <li><strong>{{ fact.name }}</strong>: {{ fact.fact }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Space Facts Aggregator</h1>
+    <h2>Planet Facts</h2>
+    <div>{{ planet_facts | safe }}</div>
+    <h2>Moon Facts</h2>
+    <div>{{ moon_facts | safe }}</div>
+    <h2>Star Facts</h2>
+    <div>{{ star_facts | safe }}</div>
+    <h2>User Info</h2>
+    <div>{{ user_info | safe }}</div>
 </body>
 </html>
