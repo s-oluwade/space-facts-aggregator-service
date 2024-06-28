@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    planet_facts = requests.get('http://planet-facts-service:5000').text
-    moon_facts = requests.get('http://moon-facts-service:5000').text
-    star_facts = requests.get('http://star-facts-service:5000').text
+    planet_facts = requests.get('http://planet-facts.frogapp.xyz/').text
+    moon_facts = requests.get('http://moon-facts.frogapp.xyz/').text
+    star_facts = requests.get('http://star-facts.frogapp.xyz/').text
     return render_template('index.html', 
                             planet_facts=planet_facts, 
                             moon_facts=moon_facts, 
